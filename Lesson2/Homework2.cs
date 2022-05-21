@@ -26,54 +26,22 @@ namespace Lesson2
         /// <summary>
         /// Задание 2.Запросить у пользователя порядковый номер текущего месяца и вывести его название.
         /// </summary>
-        static void Task2()
+        static int Task2()
         {
 
-            Console.Write("Введите номер месяца: ");
-            int number = int.Parse(Console.ReadLine());
-            string monthTitle = "";
-            switch (number)
+            
             {
-                case 1:
-                    monthTitle = "Январь";
-                    break;
-                case 2:
-                    monthTitle = "Февраль";
-                    break;
-                case 3:
-                    monthTitle = "Март";
-                    break;
-                case 4:
-                    monthTitle = "Апрель";
-                    break;
-                case 5:
-                    monthTitle = "Май";
-                    break;
-                case 6:
-                    monthTitle = "Июнь";
-                    break;
-                case 7:
-                    monthTitle = "Июль";
-                    break;
-                case 8:
-                    monthTitle = "Август";
-                    break;
-                case 9:
-                    monthTitle = "Сентябрь";
-                    break;
-                case 10:
-                    monthTitle = "Октябрь";
-                    break;
-                case 11:
-                    monthTitle = "Ноябрь";
-                    break;
-                case 12:
-                    monthTitle = "Декабрь";
-                    break;
+                Console.Write("Укажите порядковый номер месяца: ");
+                int monthNo = int.Parse(Console.ReadLine());
+                if (monthNo < 1 || monthNo > 12)
+                {
+                    Console.WriteLine("Вы указали некорректный номер месяца.");
+                }
+                Console.WriteLine($"Вы указали месяц: {new DateTime(1, monthNo, 1).ToString("MMMM")}");
+                Console.ReadKey(true);
 
+                return monthNo;
             }
-            Console.WriteLine(monthTitle);
-            Console.ReadKey();
 
         }
         /// <summary>
