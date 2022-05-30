@@ -46,27 +46,27 @@ namespace Lesson4
         /// Написать программу, принимающую на вход строку — набор чисел, разделенных пробелом, и
         /// возвращающую число — сумму всех чисел в строке.Ввести данные с клавиатуры и вывестирезультат на экран.
         /// </summary>
-        /// <param name="values"></param>
+        /// <param name="numbers"></param>
         /// <returns></returns>
-        static int Sum(params int[] values)
+        static int Sum(params int[] numbers)
         {
             int sum = 0;
-            for (int i = 0; i < values.Length; i++)
+            foreach (int number in numbers)
             {
-                sum += values[i];
+                sum += number;
             }
             return sum;
         }
 
         static void Task2()
         {
-            int sum = Sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
-            Console.WriteLine(sum);
+
+            Console.WriteLine($"Сумма чисел: {Sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,22)}"); ;
             Console.ReadLine();
         }
-                                        
+
         /// <summary>
-        /// 
+        /// Написать метод по определению времени года. На вход подаётся число – порядковый номер месяца.
         /// </summary>
         enum season { NaN, Winter, Spring, Summer, Autumn }
         static season OfMonth(int n)
@@ -111,11 +111,9 @@ namespace Lesson4
         {
             
                 Console.WriteLine("Введите номер месяца: ");
-                Console.WriteLine(Season(OfMonth(Convert.ToInt32(Console.ReadLine()))));
-           
+                Console.WriteLine(Season(OfMonth(Convert.ToInt32(Console.ReadLine()))));         
 
         }
-
             static void Main(string[] args)
             {
 
