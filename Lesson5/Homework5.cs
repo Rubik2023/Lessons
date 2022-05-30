@@ -16,7 +16,9 @@ namespace Lesson5
         /// </summary>
         static void Task1()
         {
-            string text = "Самое шумное существо в океане - это креветка";
+            //string text = "Самое шумное существо в океане - это креветка";
+            Console.Write("Введите с клавиатуры произвольный набор данных: ");
+            string text = Console.ReadLine();
             File.WriteAllText(@"C:\Users\user\Desktop\text.txt", text);   // путь и сам text
             Console.WriteLine("Text was written...");
             Console.ReadKey(true);
@@ -33,14 +35,14 @@ namespace Lesson5
             //Console.WriteLine(date1.ToLongTimeString()); // 18:30:25
             //Console.WriteLine(date1.ToShortTimeString()); // 18:30
             //Console.WriteLine(DateTime.Now);
-           
+
             File.WriteAllText(@"C:\Users\user\Desktop\startup.txt", DateTime.Now.ToLongTimeString());
             Console.WriteLine("Text was written...");
             Console.ReadKey(true);
         }
 
         static void Task3()
-            
+
         {
             /// <summary>
             /// 3. Ввести с клавиатуры произвольный набор чисел (0...255) и записать их в бинарный файл.
@@ -52,8 +54,8 @@ namespace Lesson5
             using (BinaryWriter Tik = new BinaryWriter(File.Open(path, FileMode.OpenOrCreate)))
             {
                 Console.Write("Введите с клавиатуры произвольный набор чисел (0...255): ");
-                string number = Console.ReadLine();                
-                Tik.Write("Полученные данные: "+ number);   // записываем в файл строку                             
+                string number = Console.ReadLine();
+                Tik.Write("Полученные данные: " + number);   // записываем в файл строку                             
                 Console.WriteLine("File has been written");
                 Console.ReadKey();
             }
@@ -99,26 +101,45 @@ namespace Lesson5
         //}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         static void Main(string[] args)
         {
-            Task1();
-            Task2();
-            Task3();
-            Task4();
+            bool f = true;
+            while (f)
+            {
+                Console.WriteLine("Мои задачи");
+                Console.WriteLine("=================================");
+                Console.WriteLine("1 -> Задача 1");
+                Console.WriteLine("2 -> Задача 2");
+                Console.WriteLine("3 -> Задача 3");
+                Console.WriteLine("0 -> Завершение работы приложения");
+                Console.WriteLine("=================================");
+
+                Console.Write("Введите номер задачи: ");
+                int number = int.Parse(Console.ReadLine());
+
+                switch (number)
+                {
+
+                    case 3:
+                        Task3();
+                        break;
+                    case 2:
+                        Task2();
+                        break;
+                    case 1:
+                        Task1();
+                        break;
+                    case 0:
+                        f = false;
+                        Console.WriteLine("Завершение работы приложения ...");
+                        return;
+
+                    default:
+                        Console.WriteLine("Некорректный номер задачи,\nповторите попытку ввода ...");
+                        break;
+                }
+                //Task4();
+            }
         }
     }
 }
